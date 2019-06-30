@@ -36,6 +36,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 	display: block;
 }
 #maincontent {
+  display: flex;
+  flex-wrap: wrap;
   background-color: #f3f3f3;
   min-height: 100%;
 }
@@ -131,12 +133,18 @@ nav h1 a {
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: self-end;
+  grid-auto-rows: auto;
+  grid-gap: 2rem;
   background-color: #f3f3f3;
   list-style: outside none none;
-  margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
 }
+
+
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
@@ -145,7 +153,6 @@ nav h1 a {
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  width: 270px;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -272,4 +279,37 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+@media screen and (max-width: 900px) {
+  #restaurant-container,
+  #reviews-container,
+  .inside #map-container {
+    width: 100%;
+  }
+
+  .inside #map-container {
+    height: 45%;
+  }
+  #restaurant-container {
+    margin-top:35%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #restaurants-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #restaurants-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  #restaurants-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
